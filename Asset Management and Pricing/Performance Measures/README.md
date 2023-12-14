@@ -70,7 +70,31 @@ The `AlphaRiskAdjusted.R` script utilizes parallel computing to calculate the in
 The script is designed to evaluate fund manager performance over time, adapting to varying fund histories and aiming to balance the trade-offs between estimator accuracy and historical data requirements.
  
 
-### Return Gap (RGAP)
+### Return Gap (RGAP) [acperczyk et al., (2008)](https://academic.oup.com/rfs/article-lookup/doi/10.1093/rfs/hhl041)
+
+The Return Gap (RGAP) is a metric that measures the impact of mutual fund managers' unobserved actions on fund performance. It is defined as the difference between the fund's reported return and the return of a hypothetical portfolio based on the fund's previously disclosed holdings.
+
+#### Computation:
+1. **Net Investor Return (RF):** The fund's net asset value changes, including dividends and capital gains.
+2. **Return of Fund's Holdings (RH):** The return of a hypothetical portfolio that mirrors the fund's last disclosed holdings.
+3. **Return Gap (RGAP):**
+
+
+<div align="center">
+    <img src="img/RGAP.png" alt=" RG_{f,t} = RF_{f,t} - (RH_{f,t} - EXP_{f,t})">
+</div>
+
+Where EXP represents the fund's expenses.
+
+#### Relevance:
+
+RGAP is essential to understand the effectiveness of a fund manager's hidden actions. These actions include trades and investment decisions not typically captured in regular financial reports, reflecting potential benefits and costs unseen in standard disclosures.
+
+#### Implications:
+- A positive RGAP indicates that the fund manager's unobserved actions have added value.
+- A negative RGAP suggests hidden costs or inefficient decisions detracted from the fund's performance.
+
+
 
 ## Ex-ante Measures
 

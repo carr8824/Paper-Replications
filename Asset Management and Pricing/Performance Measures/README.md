@@ -23,7 +23,11 @@ Ex-post measures refer to performance already realized, incorporating the cumula
 
   - An alternative approach in mutual funds compares the realized return with the expected return:
 
-![R_{t+1}-\alpha-\sum_{j} B^{j} Risk^{j}](https://www.dropbox.com/scl/fi/piyxs4ffmkzo3stec8oov/RAPA.png?rlkey=ajfc3wnsf1vs4btsmxzn23igu&dl=0)
+![R_{t+1}-\alpha-\sum_{j} B^{j} Risk^{j}](img/RAPA.png)
+
+<div align="center">
+    <img src="img/RAPA.png" alt="R_{t+1}-\alpha-\sum_{j} B^{j} Risk^{j}">
+</div>
 
 
 - **Considerations**: Calculating \(\alpha\) typically requires at least 12 months of data. However, this may introduce bias due to endogeneity and correlation with past variables. Focusing on one-step performance not explained by past factors can mitigate but not eliminate this bias.

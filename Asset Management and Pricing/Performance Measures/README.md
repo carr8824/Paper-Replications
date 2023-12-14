@@ -17,13 +17,15 @@ Ex-post measures refer to performance already realized, incorporating the cumula
 - **Standard Application**:
   - The standard application involves OLS regressions to derive the intercept as the return from the portfolio not explained by risk factors:
 
-![R-R_{f}=\alpha + \sum_{j} B^{j} Risk^{j}+\epsilon](img/RAP.png)
+
+<div align="center">
+    <img src="img/RAP.png" alt="R_{t+1}-\alpha-\sum_{j} B^{j} Risk^{j}">
+</div>
 
 
 
   - An alternative approach in mutual funds compares the realized return with the expected return:
 
-![R_{t+1}-\alpha-\sum_{j} B^{j} Risk^{j}](img/RAPA.png)
 
 <div align="center">
     <img src="img/RAPA.png" alt="R_{t+1}-\alpha-\sum_{j} B^{j} Risk^{j}">

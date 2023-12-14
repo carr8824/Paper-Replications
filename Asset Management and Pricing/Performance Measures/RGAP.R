@@ -155,22 +155,6 @@ PM <- function(y, QuarterlyStock, Indexes_Weights, FTSE_Rusell, s) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Define a sequence of years for analysis
 Y <- seq(2000, 2020, 1)
 

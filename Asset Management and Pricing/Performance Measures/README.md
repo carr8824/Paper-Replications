@@ -70,7 +70,7 @@ The `AlphaRiskAdjusted.R` script utilizes parallel computing to calculate the in
 The script is designed to evaluate fund manager performance over time, adapting to varying fund histories and aiming to balance the trade-offs between estimator accuracy and historical data requirements.
  
 
-### Return Gap (RGAP) [acperczyk et al., (2008)](https://academic.oup.com/rfs/article-lookup/doi/10.1093/rfs/hhl041)
+### Return Gap (RGAP) [Kacperczyk et al., (2008)](https://academic.oup.com/rfs/article-lookup/doi/10.1093/rfs/hhl041)
 
 The Return Gap (RGAP) is a metric that measures the impact of mutual fund managers' unobserved actions on fund performance. It is defined as the difference between the fund's reported return and the return of a hypothetical portfolio based on the fund's previously disclosed holdings.
 
@@ -93,6 +93,35 @@ RGAP is essential to understand the effectiveness of a fund manager's hidden act
 #### Implications:
 - A positive RGAP indicates that the fund manager's unobserved actions have added value.
 - A negative RGAP suggests hidden costs or inefficient decisions detracted from the fund's performance.
+
+
+
+#### RGAP.R Explanation
+
+
+The `RGAP.R` script is designed to work with mutual fund data, mainly focusing on the intricacies of net returns, expenses, and gross returns as reported in mutual fund datasets. For a comprehensive understanding of portfolio holdings and the calculation of complete, up-to-date portfolio holdings, refer to the [Portfolio Holdings MCU CRSPTHR repository](https://github.com/carr8824/Data-Cleaning/tree/main/DoctoralResearch-AssetManagement/PortfolioHoldings%20MCU%20CRSPTHR).
+
+#### Data Frequency and Sources
+
+- **Net Returns and Expenses Reporting**: Net returns and expenses in mutual funds are reported by CRSP. Notably, returns are available monthly, whereas costs are annualized.
+
+- **Gross Returns**: Gross returns data is provided every quarter. This frequency aligns with the reporting of portfolio holdings and the quarterly returns of securities, underlining the assumption of buy-and-hold within a quarter due to observable holdings only every quarter.
+
+#### Databases Used in the Code
+
+1. **Quarterly Stock Returns (QuarterlyStock)**: This database contains information on stock returns at a quarterly frequency.
+
+2. **Portfolio Holdings (MFHoldings)**: Using this data, the script calculates the gross returns (PGRet) and the Forward Hypothetical Return (FRH) for each portfolio.
+
+3. **Realized Net Returns and Annualized Expenses**: Once the gross returns are calculated, the script integrates the reported net returns from funds (monthly frequency) and annualized expenses. These can be extracted from CRSP's summary information and returns data.
+
+#### Data Processing and Aggregation
+
+- **Harmonizing Data Frequencies**: The script converts data not originally in quarterly format to a quarterly basis. Monthly returns are compounded, and annual expenses are linearly interpolated (or divided by four).
+
+- **Equation Application**: The script then applies the previously discussed equations to calculate the necessary performance measures.
+
+- **Aggregating Returns at Portfolio Level**: It's crucial to note that the return data from CRSP is reported at the share class level. All returns need to be aggregated at the portfolio level for this script. For more details on this aggregation process, visit the [Fund Level Aggregation repository](https://github.com/carr8824/Data-Cleaning/tree/main/DoctoralResearch-AssetManagement/FundLevel%20Aggregation).
 
 
 

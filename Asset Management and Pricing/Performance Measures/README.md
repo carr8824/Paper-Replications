@@ -1,6 +1,5 @@
 # Performance Measures
 
-## Overview
 
 This section explores various ways to define performance in mutual funds, focusing on the standard and most commonly used methods in the literature. Performance is often gauged through returns, which can be net returns (after fees and costs) or gross returns. The complexity of these measures requires a solid understanding of mathematics and statistics to derive meaningful conclusions.
 
@@ -127,7 +126,39 @@ The `RGAP.R` script is designed to work with mutual fund data, mainly focusing o
 
 ## Ex-ante Measures
 
-### Characteristic Selectivity
+
+Ex-ante measures differ significantly from ex-post measures in evaluating portfolio management. While ex-post measures focus on past performance, ex-ante measures are forward-looking, assessing the potential future impact of a manager's decisions on portfolio composition.
+
+- **Focus on Future Performance:** Ex-ante measures evaluate a manager's ability to anticipate future market prices, rather than merely analyzing past performance averages.
+- **Insight into Managerial Decision-Making:** These measures provide insights into the value derived from managers' decisions in upcoming periods, offering a different perspective than ex-post measures, reflecting past decisions' realized outcomes.
+
+- **Beyond Performance Metrics:** Unlike performance metrics that aggregate various factors such as fees, market conditions, and operational aspects, ex-ante measures offer a more focused evaluation. They provide a clear picture of the portfolio's competitiveness relative to a benchmark portfolio.
+- **Comparative Analysis:** Ex-ante measures allow for a refined understanding of a manager's ability by comparing the portfolio's potential against a predefined benchmark rather than solely relying on past performance data.
+
+This approach to measurement emphasizes the strategic aspect of portfolio management, highlighting a manager's foresight and anticipatory skills, which are crucial in the ever-evolving financial markets.
+
+
+
+### Characteristic Selectivity .[Daniel et al., (1997)](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.1997.tb02724.x)
+
+The CS measure offers an innovative method to assess mutual fund performance, focusing on three key stock characteristics: market capitalization, book-to-market ratio, and prior-year return. This approach aligns with the latest findings in finance research, indicating that these characteristics are robust predictors of stock returns.
+
+#### Key Advantages of CS Measure
+- **Granular Risk Adjustment:** Unlike traditional alpha measures, CS allows for a more nuanced risk adjustment at the stock level.
+- **Ex-ante Evaluation:** Provides an alternative method for assessing managerial ability without relying excessively on past performance data, thus reducing endogeneity issues.
+- **Real-Time Portfolio Assessment:** Evaluates the entire portfolio based on the latest market prices, offering a more current and relevant analysis.
+
+#### Methodology
+The CS measure compares a mutual fund's performance against 125 passive portfolios, categorized based on size, book-to-market ratio, and momentum. The measure is calculated as follows:
+
+### CS Calculation
+1. **Portfolio Formation:** Sort stocks into 125 portfolios based on quintile rankings of size, book-to-market ratio, and prior-year return.
+2. **Excess Return Calculation:** For each stock, calculate the excess return over the matched passive portfolio.
+3. **Weighted Abnormal Return:** Aggregate these excess returns, weighted by their respective portfolio weights, to obtain the fund's abnormal performance.
+
+#### CS.R Code explanations
+
+...
 
 ### Trading Selectivity 
 

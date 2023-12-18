@@ -152,6 +152,11 @@ The CS measure offers an innovative method to assess mutual fund performance, fo
 The CS measure compares a mutual fund's performance against 125 passive portfolios, categorized based on size, book-to-market ratio, and momentum. The measure is calculated as follows:
 
 ### CS Calculation
+
+<div align="center">
+    <img src="img/CS.png" alt="CS_{t}= \sum_{j=1}^{N} w_{j,t-1} \left( R_{j,t} - R_{t-1}^{b_{j(125)}} \right)">
+</div>
+
 1. **Portfolio Formation:** Sort stocks into 125 portfolios based on quintile rankings of size, book-to-market ratio, and prior-year return.
 2. **Excess Return Calculation:** For each stock, calculate the excess return over the matched passive portfolio.
 3. **Weighted Abnormal Return:** Aggregate these excess returns, weighted by their respective portfolio weights, to obtain the fund's abnormal performance.
@@ -162,19 +167,43 @@ The CS measure compares a mutual fund's performance against 125 passive portfoli
 ##### Data Sources
 - **Quarterly Compustat Data**: Financial metrics like assets and liabilities. They are used to calculate financial ratios and standardize reporting periods.
 - **Monthly CRSP Prices Data**: Includes end-of-month stock prices. Employed for price data and momentum calculations.
+- ** K. French Breakpoints**: You can donwload the info .[here](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html#Breakpoints)
 
 The codes do: 
 
-a. **Preprocessing Monthly CRSP Data**: Arranges data, calculates momentum using stock prices, and compiles quarterly returns.
-b. **Preprocessing Quarterly Compustat Data**: Standardizes reporting dates, ensuring uniformity in the quarterly financial data.
-c. **Merging Data**: Combines Compustat and CRSP data, aligning financial metrics with stock prices for a comprehensive dataset.
-d. **Calculating Momentum**: Computes stock performance momentum based on rolling quarterly returns.
-e. **Portfolio Classification**: Classifies stocks into 125 portfolios using Market Equity, Book-to-Market Ratio, and Momentum.
-f. **Benchmark Adjusted Returns Calculation**: Determines both Equally Weighted and Value-Weighted Benchmark Adjusted Returns for portfolios.
+a). **Preprocessing Monthly CRSP Data**: Arranges data, calculates momentum using stock prices, and compiles quarterly returns.
+b). **Preprocessing Quarterly Compustat Data**: Standardizes reporting dates, ensuring uniformity in the quarterly financial data.
+c). **Merging Data**: Combines Compustat and CRSP data, aligning financial metrics with stock prices for a comprehensive dataset.
+d). **Calculating Momentum**: Computes stock performance momentum based on rolling quarterly returns.
+e). **Portfolio Classification**: Classifies stocks into 125 portfolios using Market Equity, Book-to-Market Ratio, and Momentum.
+f). **Benchmark Adjusted Returns Calculation**: Determines both Equally Weighted and Value-Weighted Benchmark Adjusted Returns for portfolios.
 
 
+#### CS_DGTW.R Code Explanations (Characteristic Selectivity Calculation Script)
+
+The `CS_DGTW.R` script is designed to calculate Characteristic Selectivity (CS) for mutual funds, following the methodology established by Daniel, et al. (1997). This script focuses on evaluating mutual fund performance based on selectivity metrics.
+
+##### Data Requirements
+
+- **Benchmark Adjusted Returns (`QuarterlyCRSPBAR.dta`)**: This dataset contains CRSP benchmark-adjusted returns data. It can be generated using the `BenchmarkAdjustedReturns.R` script.
+- **Mutual Fund Holdings Data (`MFHoldings_<year>.dta`)**: These files hold yearly mutual fund holdings and can be sourced from CRSP or Thomson Reuters. The version used here aligns with the Most Comprehensive, Up-to-Date Portfolio holdings methodology, obtainable via the `MixingHoldings.R` script found in the [portfolio holdings folder on GitHub](https://github.com/carr8824/Data-Cleaning/tree/main/DoctoralResearch-AssetManagement/PortfolioHoldings%20MCU%20CRSPTHR).
+
+##### Functions in the Script
+
+- `suma(df)`: A function to compute the sum of a dataframe, efficiently handling `NA` values.
+- `CS(y, QuarterlyStockBAR)`: A core function that calculates the Characteristic Selectivity for a given year, utilizing the stock data provided.
+
+##### Process and Output
+
+a). **Preprocessing**: The script begins by preprocessing the `QuarterlyCRSPBAR` data for forward-looking metrics.
+b). **Data Merging**: It then merges mutual fund holdings data with the `QuarterlyCRSPBAR`.
+c). **CS Computation**: The Characteristic Selectivity is computed using both equally-weighted and value-weighted returns.
+d). **Output**: The final output is a data frame containing the computed CS values for each fund.
+
+This script, `CS_DGTW.R`, serves as a crucial tool for mutual fund analysis, offering insights into the selectivity aspect of fund performance.
 
 
 ### Trading Selectivity 
+
 
 

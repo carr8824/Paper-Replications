@@ -151,15 +151,15 @@ The CS measure offers an innovative method to assess mutual fund performance, fo
 #### Methodology
 The CS measure compares a mutual fund's performance against 125 passive portfolios, categorized based on size, book-to-market ratio, and momentum. The measure is calculated as follows:
 
-### CS Calculation
+#### CS Calculation
 
 <div align="center">
     <img src="img/CS.png" alt="CS_{t}= \sum_{j=1}^{N} w_{j,t-1} \left( R_{j,t} - R_{t-1}^{b_{j(125)}} \right)">
 </div>
 
-1. **Portfolio Formation:** Sort stocks into 125 portfolios based on quintile rankings of size, book-to-market ratio, and prior-year return.
+1. **Benchmark Portfolio Formation:** Sort stocks into 125 portfolios based on quintile rankings of size, book-to-market ratio, and prior-year return (5 x 5 x 5).
 2. **Excess Return Calculation:** For each stock, calculate the excess return over the matched passive portfolio.
-3. **Weighted Abnormal Return:** Aggregate these excess returns, weighted by their respective portfolio weights, to obtain the fund's abnormal performance.
+3. **Weighted Average Abnormal Return:** Aggregate these excess returns, weighted by their respective portfolio weights, to obtain the fund's abnormal performance.
 
 #### BenchmarkAdjustedReturns.R Code explanations (Methodology based Daniel, et al. (1997))
 
@@ -200,10 +200,6 @@ b). **Data Merging**: It then merges mutual fund holdings data with the `Quarter
 c). **CS Computation**: The Characteristic Selectivity is computed using both equally-weighted and value-weighted returns.
 d). **Output**: The final output is a data frame containing the computed CS values for each fund.
 
-This script, `CS_DGTW.R`, serves as a crucial tool for mutual fund analysis, offering insights into the selectivity aspect of fund performance.
-
-
-### Trading Selectivity 
 
 
 

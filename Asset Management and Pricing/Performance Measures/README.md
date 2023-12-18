@@ -129,7 +129,7 @@ The `RGAP.R` script is designed to work with mutual fund data, mainly focusing o
 
 Ex-ante measures differ significantly from ex-post measures in evaluating portfolio management. While ex-post measures focus on past performance, ex-ante measures are forward-looking, assessing the potential future impact of a manager's decisions on portfolio composition.
 
-- **Focus on Future Performance:** Ex-ante measures evaluate a manager's ability to anticipate future market prices, rather than merely analyzing past performance averages.
+- **Focus on Future Performance:** Ex-ante measures evaluate a manager's ability to anticipate future market prices rather than merely analyzing past performance averages.
 - **Insight into Managerial Decision-Making:** These measures provide insights into the value derived from managers' decisions in upcoming periods, offering a different perspective than ex-post measures, reflecting past decisions' realized outcomes.
 
 - **Beyond Performance Metrics:** Unlike performance metrics that aggregate various factors such as fees, market conditions, and operational aspects, ex-ante measures offer a more focused evaluation. They provide a clear picture of the portfolio's competitiveness relative to a benchmark portfolio.
@@ -156,9 +156,24 @@ The CS measure compares a mutual fund's performance against 125 passive portfoli
 2. **Excess Return Calculation:** For each stock, calculate the excess return over the matched passive portfolio.
 3. **Weighted Abnormal Return:** Aggregate these excess returns, weighted by their respective portfolio weights, to obtain the fund's abnormal performance.
 
-#### CS.R Code explanations
+#### BenchmarkAdjustedReturns.R Code explanations (Methodology based Daniel, et al. (1997))
 
-...
+
+##### Data Sources
+- **Quarterly Compustat Data**: Financial metrics like assets and liabilities. They are used to calculate financial ratios and standardize reporting periods.
+- **Monthly CRSP Prices Data**: Includes end-of-month stock prices. Employed for price data and momentum calculations.
+
+The codes do: 
+
+a. **Preprocessing Monthly CRSP Data**: Arranges data, calculates momentum using stock prices, and compiles quarterly returns.
+b. **Preprocessing Quarterly Compustat Data**: Standardizes reporting dates, ensuring uniformity in the quarterly financial data.
+c. **Merging Data**: Combines Compustat and CRSP data, aligning financial metrics with stock prices for a comprehensive dataset.
+d. **Calculating Momentum**: Computes stock performance momentum based on rolling quarterly returns.
+e. **Portfolio Classification**: Classifies stocks into 125 portfolios using Market Equity, Book-to-Market Ratio, and Momentum.
+f. **Benchmark Adjusted Returns Calculation**: Determines both Equally Weighted and Value-Weighted Benchmark Adjusted Returns for portfolios.
+
+
+
 
 ### Trading Selectivity 
 

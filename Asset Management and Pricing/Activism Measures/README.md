@@ -95,3 +95,39 @@ Activism on ESG (AFE) extends the concept of activism analysis beyond mispricing
 - **Zero AFE Values:** Negative or positive AFE values, closer to zero, suggest non-activity due to either closeness to the benchmark or being distant in a stock with low ESG.
 
 
+# ActiveShare.R code
+
+This repository hosts R code developed for analyzing mutual funds, focusing on Active Share (AF), Active Overlap (AFO), and Active ESG Overlap (AFE). The analysis is based on mutual fund holdings and their comparison with benchmark indices.
+
+## Data Dependencies
+
+1. **QuarterlyStock**: Contains information on all NYSE, NASDAQ, and AMEX stocks from the CRSP database. It includes crucial data like prices (for value-weighted average calculations) and stock characteristics such as OI (Mispricing) and ESG scores. Stock characteristics can be accessed using either tickers or CUSIPs.
+
+2. **Indexes_Weights**: This file provides index holdings information from FTSE Russell. Access to this data can typically be obtained through WRDS. It's essential for comparing mutual fund holdings against relevant benchmarks.
+
+3. **FTSE_Rusell_Equity**: Sourced from Morningstar Direct, this file ties each mutual fund to its benchmark index. For guidance on matching Morningstar data with CRSP and Thomson Reuters, refer to my detailed repository on data matching: [Data Matching Procedure](https://github.com/carr8824/Data-Cleaning/tree/main/DoctoralResearch-AssetManagement/Data%20Matching).
+
+4. **Portfolio Holdings**: The code is compatible with CRSP or Thomson Reuters holdings data. However, I recommend using MCU holdings for the most comprehensive and up-to-date information. You can find the code for accessing MCU holdings in my repository: [MCU Holdings Access](https://github.com/carr8824/Data-Cleaning/tree/main/DoctoralResearch-AssetManagement/PortfolioHoldings%20MCU%20CRSPTHR).
+
+## Code Overview
+The R script provided in this repository is structured to perform the following essential tasks:
+
+- **Data Import and Cleaning**: Load the necessary data files and ensure consistency and cleanliness.
+- **Weight Calculations**: Calculating the value-weighted average of holdings based on stock prices.
+- **Benchmark Comparisons**: Comparing mutual fund holdings against FTSE Russell index benchmarks.
+- **AF, AFO, and AFE Calculations**: Computing Active Share (AF), Active Overlap (AFO), and Active ESG Overlap (AFE) for mutual funds.
+- **Output Generation**: Creating and exporting processed data for further analysis or reporting.
+
+## Getting Started
+To replicate the analysis:
+
+1. Ensure you have access to the required data files mentioned above.
+2. Clone this repository to your local machine.
+3. Run the R script, adjusting the file paths to where your data files are stored.
+
+## Contributions and Usage
+Feel free to fork this repository or use the code for your research. Please open an issue or submit a pull request for any queries or suggestions for improvements.
+
+
+
+

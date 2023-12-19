@@ -56,7 +56,7 @@ The paper "Mutual Funds and Mispriced Stocks" by Doron Avramov, Si Cheng, and Al
 
 
 <div align="center">
-    <img src="img/AF.png" alt="AFO_{f,t} = \sum_{i}^{N} \left( w_{i,f,t} - w_{i, index,t} \right) MisPrice_{i,t}">
+    <img src="img/AFO.png" alt="AFO_{f,t} = \sum_{i}^{N} \left( w_{i,f,t} - w_{i, index,t} \right) MisPrice_{i,t}">
 </div>
 
 
@@ -75,6 +75,10 @@ The paper "Mutual Funds and Mispriced Stocks" by Doron Avramov, Si Cheng, and Al
 
 
 Activism on ESG (AFE) extends the concept of activism analysis beyond mispricing to other stock characteristics, such as ESG (Environmental, Social, and Governance) scores. [Bofinger et al., (2022)](https://www.sciencedirect.com/science/article/pii/S1544612321002397) developed an activism measure based on ESG scores. This approach was inspired by the contributions of [Avramov et al., (2020)](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2019.3319), which opened the door to such extensions.
+
+<div align="center">
+    <img src="img/AFE.png" alt="AFE_{f,t} = \sum_{i}^{N} \left( w_{i,f,t} - w_{i, index,t} \right) ESG_{i,t}">
+</div>
 
 ### Methodology
 
